@@ -9,18 +9,37 @@ from pdf_filler import (
 import xlrd
 import json
 
-print("hello world")
+# TODO: open "00 Client informatiom.xlsx" with xlrd
 
-data = [
-    PdfData(
-        general_setting=PdfDataConfig(
-            text="✓", font="Courier", font_size=16, color=Color(255, 0, 0)
-        )
-    )
-]
+# TODO: from sheet 1 column B, read information for insured into a dictionary
+
+# TODO: from sheet 1 column C, read information for owner into a dictionary
+
+# TODO: from sheet 2, read each row and store data about existing insurance into a dictionary
+
+# TODO: from sheet 3, read each row and store data about beneficiaries into a dictionary
+
+# TODO: understand structure of "01 config.json"
+# {
+#     "FILENAME": [
+#         {
+#             "text": "<RETRIEVE DATA FROM DICTIONARIES CREATED ABOVE>",
+#             "page": "<PAGE NUMBER>",
+#             "x": "<X POSITION IN PDF FILE>",
+#             "y": "<Y POSITION IN PDF FILE>",
+#             "fontsize": "<FONT SIZE>",
+#         }
+#     ]
+# }
+
+# TODO: read and store data from "01 config.json"
+
+# TODO: read and store the filenames of the pdfs in the input folder into a list
+
+# TODO: for each item in the list created above, fill the pdf as specified in the json file
 
 
-# OLD CODE BELOW
+# SAMPLE CODE FOR PDF FILLING BELOW
 # if __name__ == "__main__":
 #     data = [
 #         PdfData(
