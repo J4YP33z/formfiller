@@ -10,6 +10,7 @@ import xlrd
 import json
 import os.path
 import glob
+import fnmatch
 
 # TODO: open "00 Client informatiom.xlsx" with xlrd
 def getRelativePath(fileName: str):
@@ -20,7 +21,7 @@ def getRelativePath(fileName: str):
     return path
 
 
-# TODO: from sheet 1 column B, read information for insured into a dictionary
+# TODO: from sheet 1 column B, read information for insured into a dictionar
 def readDataVertical(
     fileName: str,
     sheetName: str,
@@ -111,13 +112,15 @@ def getTemplatesFromJsonFile(fileName: str):
 # TODO: read and store the filenames of the pdfs in the input folder into a list
 def getAllFileFromInputFolder():
     files = []
-    for _file in glob.glob("*.pdf"):
-        files.append(_file)
+    for file in os.listdir("src/input/"):
+        if fnmatch.fnmatch(file, "*.pdf"):
+            files.append(file)
     return files
 
 
 # TODO: for each item in the list created above, fill the pdf as specified in the json file
 def setPDFData(template: list, data_dict: list):
+
     dataList = []
 
     # get first value of template
@@ -139,6 +142,7 @@ def setPDFData(template: list, data_dict: list):
 
     for field_idx in range(1, len(template)):
         field = template[field_idx]
+
         # check if current field exist in dataList of not
         #   if exist:
         #       add new location for the exist field
@@ -173,46 +177,95 @@ def setPDFData(template: list, data_dict: list):
                 general_setting=_generalSetting, configs=_configs.copy()
             )
             dataList.append(_newPdfData)
-
     return dataList
 
 
-excel_fname = "input/00 Client information.xlsx"
-# create insured dictionary and read the insured info start from 4th row, keyCol_idx=0, valueCol_idx=1
-insured_dict = readDataVertical(excel_fname, "Info", 3, 0, 1)
-# create owner dictionary
-owner_dict = readDataVertical(excel_fname, "Info", 3, 0, 2)
-# create baneficiaries dictionary
-beneficiaries_dict = readDataHorizontal(excel_fname, "Beneficiaries", 2, 2, 1, 1)
+# SAMPLE CODE FOR PDF FILLING BELOW
+if __name__ == "__main__":
+    excel_fname = "input/00 Client information.xlsx"
+    # create insured dictionary
+    insured_dict = {}
+    # read the insured info start from 4th row, keyCol_idx=0, valueCol_idx=1
+    insured_dict = readDataVertical(excel_fname, "Info", 3, 0, 1)
+    # create owner dictionary
+    owner_dict = {}
+    owner_dict = readDataVertical(excel_fname, "Info", 3, 0, 2)
+    # create baneficiaries dictionary
+    beneficiaries_dict = {}
+    beneficiaries_dict = readDataHorizontal(excel_fname, "Beneficiaries", 2, 2, 1, 1)
 
-# get key value pairs from "Beneficiaries" sheet by "ENGLISH NAME"
-# 1. Get key for searching
-# 2. Get the values
-# 3. Update the insured dictionary
-searchingKey = insured_dict["ENGLISH NAME"]
-beneficiaries_info = beneficiaries_dict[searchingKey]
-insured_dict.update(beneficiaries_info)
-# read json file
-templates = getTemplatesFromJsonFile("input/templates.json")
-# get all fields in template by name
-field_list = templates["5a.  Sun Life VOT rev (adult).pdf"]
-# get all pdf file in input folder
-files = getAllFileFromInputFolder()
-# set data for form filling
-dataList = setPDFData(field_list, insured_dict)
+    # get key value pairs from "Beneficiaries" sheet by "ENGLISH NAME"
+    # 1. Get key for searching
+    # 2. Get the values
+    # 3. Update the insured dictionary
+    searchingKey = insured_dict["ENGLISH NAME"]
+    beneficiaries_info = beneficiaries_dict[searchingKey]
+    insured_dict.update(beneficiaries_info)
+    # read json file
+    templates = getTemplatesFromJsonFile("input/templates.json")
+    # get all fields in template by name
+    field_list = templates["5a.  Sun Life VOT rev (adult).pdf"]
+    # get all pdf file in input folder
+    files = getAllFileFromInputFolder()
+    print(files)
+    # set data for form filling
+    # dataList = setPDFData(field_list, insured_dict)
 
-# fill the form
-print("merging... please keep calm and wait...!")
-source_pdf = "5a.  Sun Life VOT rev (adult).pdf"
-with open(source_pdf, "rb") as original:
-    try:
-        result = merge_pdf_with_data(original, dataList)
-    except PdfCreationFailed as e:
-        print(e)
-        exit(1)
-    else:
-        result.seek(0)
-        with open("result.pdf", "wb") as result_pdf:
-            result_pdf.write(result.read())
-        print("Success!")
-        exit(0)
+    # fill the form
+    # print("merging... please keep calm and wait...!")
+    # source_pdf = "5a.  Sun Life VOT rev (adult).pdf"
+    # with open(source_pdf, "rb") as original:
+    #     try:
+    #         result = merge_pdf_with_data(original, dataList)
+    #     except PdfCreationFailed as e:
+    #         print(e)
+    #         exit(1)
+    #     else:
+    #         result.seek(0)
+    #         with open("result.pdf", "wb") as result_pdf:
+    #             result_pdf.write(result.read())
+    #         print("Success!")
+    #         exit(0)
+    # data = [
+    #     PdfData(
+    #         general_setting=PdfDataConfig(
+    #             text="✓", font="Courier", font_size=16, color=Color(255, 0, 0)
+    #         ),
+    #         configs=[
+    #             PdfDataConfig(location=Location(400, 505, page=3)),
+    #             PdfDataConfig(location=Location(398, 541, page=3), text="X"),
+    #             PdfDataConfig(location=Location(200, 360, page=4), text="01-01-1970"),
+    #         ],
+    #     ),
+    #     PdfData(
+    #         configs=[
+    #             PdfDataConfig(
+    #                 text="obama",
+    #                 font_size=16,
+    #                 color=Color(255, 0, 255),
+    #                 location=Location(260, 215, page=1),
+    #             )
+    #         ]
+    #     ),
+    #     PdfData(
+    #         general_setting=PdfDataConfig(
+    #             text="Ann", location=Location(260, 590, page=1)
+    #         )
+    #     ),
+    # ]
+
+    # source_pdf = "4. Alpadis - CRS - Controlling Person (EN-m) 2019 07 23.pdf"
+
+    # with open(source_pdf, "rb") as original:
+    #     try:
+    #         result = merge_pdf_with_data(original, data)
+    #     except PdfCreationFailed as e:
+    #         print(e)
+    #         exit(1)
+    #     else:
+    #         result.seek(0)
+    #         with open("result.pdf", "wb") as result_pdf:
+    #             result_pdf.write(result.read())
+    #         print("Success!")
+    #         exit(0)
+
