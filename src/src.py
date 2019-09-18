@@ -208,6 +208,7 @@ if __name__ == "__main__":
     # get all pdf file in input folder
     files = getAllFileFromInputFolder()
     print(files)
+    #test commit 
     # set data for form filling
     # dataList = setPDFData(field_list, insured_dict)
 
