@@ -203,71 +203,30 @@ if __name__ == "__main__":
     insured_dict.update(beneficiaries_info)
     # read json file
     templates = getTemplatesFromJsonFile("input/templates.json")
-    # get all fields in template by name
-    field_list = templates["5a.  Sun Life VOT rev (adult).pdf"]
+   
     # get all pdf file in input folder
     files = getAllFileFromInputFolder()
     print(files)
-    #test commit 
-    #another test commit
-    # set data for form filling
-    # dataList = setPDFData(field_list, insureict)
+    # fill the form one by one
+    for _file in files:
+        # get all fields in template by name
+        field_list = templates[_file]
+        # set data for form filling
+        dataList = setPDFData(field_list, insured_dict)
+        # get the path of the pdf file
+        path = os.path.join("src/input/",_file)
+        #read, merge and write info to the file
+        with open(path, "rb") as original:
+            try:
+                result = merge_pdf_with_data(original, dataList)
+            except PdfCreationFailed as e:
+                print(e)
+                exit(1)
+            else:
+                result.seek(0)
+                with open(path, "wb") as result_pdf:
+                    result_pdf.write(result.read())
+                    print("Success!")
+    exit(0)                
 
-    # fill the form
-    # print("merging... please keep calm and wait...!")
-    # source_pdf = "5a.  Sun Life VOT rev (adult).pdf"
-    # with open(source_pdf, "rb") as original:
-    #     try:
-    #         result = merge_pdf_with_data(original, dataList)
-    #     except PdfCreationFailed as e:
-    #         print(e)
-    #         exit(1)
-    #     else:
-    #         result.seek(0)
-    #         with open("result.pdf", "wb") as result_pdf:
-    #             result_pdf.write(result.read())
-    #         print("Success!")
-    #         exit(0)
-    # data = [
-    #     PdfData(
-    #         general_setting=PdfDataConfig(
-    #             text="✓", font="Courier", font_size=16, color=Color(255, 0, 0)
-    #         ),
-    #         configs=[
-    #             PdfDataConfig(location=Location(400, 505, page=3)),
-    #             PdfDataConfig(location=Location(398, 541, page=3), text="X"),
-    #             PdfDataConfig(location=Location(200, 360, page=4), text="01-01-1970"),
-    #         ],
-    #     ),
-    #     PdfData(
-    #         configs=[
-    #             PdfDataConfig(
-    #                 text="obama",
-    #                 font_size=16,
-    #                 color=Color(255, 0, 255),
-    #                 location=Location(260, 215, page=1),
-    #             )
-    #         ]
-    #     ),
-    #     PdfData(
-    #         general_setting=PdfDataConfig(
-    #             text="Ann", location=Location(260, 590, page=1)
-    #         )
-    #     ),
-    # ]
-
-    # source_pdf = "4. Alpadis - CRS - Controlling Person (EN-m) 2019 07 23.pdf"
-
-    # with open(source_pdf, "rb") as original:
-    #     try:
-    #         result = merge_pdf_with_data(original, data)
-    #     except PdfCreationFailed as e:
-    #         print(e)
-    #         exit(1)
-    #     else:
-    #         result.seek(0)
-    #         with open("result.pdf", "wb") as result_pdf:
-    #             result_pdf.write(result.read())
-    #         print("Success!")
-    #         exit(0)
-
+   
