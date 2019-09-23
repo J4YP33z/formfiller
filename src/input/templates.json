@@ -1,17 +1,63 @@
 {
+  "4. Alpadis - CRS - Controlling Person (EN-m) 2019 07 23.pdf": [
+    {
+      "text": "POLICY NUMBER",
+      "page": "1",
+      "x": "81",
+      "y": "132",
+      "fontsize": "12"
+    }
+  ],
+  "2. Declaration of Trust for life Trust Insurance (EN-m) 2019 07 23.pdf": [
+    {
+      "text": "POLICY NUMBER",
+      "page": "1",
+      "x": "81",
+      "y": "132",
+      "fontsize": "12"
+    }
+  ],
   "7. Trust - Application Supplement 1807.pdf": [
     {
-      "text": "this is some sample text",
-      "page": "1",
-      "x": "100",
-      "y": "100",
+      "text": "POLICY NUMBER",
+      "page": "0",
+      "x": "81",
+      "y": "130",
       "fontsize": "12"
     },
     {
-      "text": "sdhuisfhsf",
-      "page": "1",
-      "x": "100",
-      "y": "100",
+      "text": "ENGLISH NAME",
+      "page": "0",
+      "x": "345",
+      "y": "130",
+      "fontsize": "12"
+    },
+    {
+      "text": "ENGLISH NAME",
+      "page": "0",
+      "x": "286",
+      "y": "175",
+      "fontsize": "12"
+    },
+    {
+      "text": "HKID",
+      "page": "0",
+      "x": "48",
+      "y": "202",
+      "fontsize": "12"
+    },
+    {
+      "text": "ENGLISH NAME",
+      "page": "0",
+      "x": "49",
+      "y": "240",
+      "fontsize": "12"
+    },
+    {
+      "text": "HKID",
+      "page": "0",
+      "x": "240",
+      "y": "252",
       "fontsize": "12"
     }
   ],
