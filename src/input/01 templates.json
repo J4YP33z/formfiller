@@ -1,13 +1,4 @@
 {
-  "4. Alpadis - CRS - Controlling Person (EN-m) 2019 07 23.pdf": [
-    {
-      "text": "POLICY NUMBER",
-      "page": "1",
-      "x": "81",
-      "y": "132",
-      "fontsize": "12"
-    }
-  ],
   "2. Declaration of Trust for life Trust Insurance (EN-m) 2019 07 23.pdf": [
     {
       "text": "POLICY NUMBER",
@@ -40,7 +31,7 @@
       "fontsize": "12"
     },
     {
-      "text": "HKID",
+      "text": "HKID OR PASSPORT",
       "page": "0",
       "x": "48",
       "y": "202",
@@ -54,7 +45,7 @@
       "fontsize": "12"
     },
     {
-      "text": "HKID",
+      "text": "HKID OR PASSPORT",
       "page": "0",
       "x": "240",
       "y": "252",
@@ -84,7 +75,7 @@
       "fontsize": "12"
     },
     {
-      "text": "HKID",
+      "text": "HKID OR PASSPORT",
       "page": "1",
       "x": "45",
       "y": "164",
@@ -260,7 +251,7 @@
     },
 
     {
-      "text": "HKID",
+      "text": "HKID OR PASSPORT",
       "page": "4",
       "x": "60",
       "y": "251",
