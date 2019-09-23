@@ -32,7 +32,7 @@ class Location:
 
     def __init__(self, x: int, y: int, page: int = 0) -> None:
         self.x = x
-        self.y = 841.9 - y
+        self.y = 842 - y
         self.page = page
 
 
