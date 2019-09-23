@@ -203,10 +203,9 @@ if __name__ == "__main__":
     insured_dict.update(beneficiaries_info)
     # read json file
     templates = getTemplatesFromJsonFile("input/templates.json")
-   
+
     # get all pdf file in input folder
     files = getAllFileFromInputFolder()
-    print(files)
     # fill the form one by one
     for _file in files:
         # get all fields in template by name
@@ -214,8 +213,8 @@ if __name__ == "__main__":
         # set data for form filling
         dataList = setPDFData(field_list, insured_dict)
         # get the path of the pdf file
-        path = os.path.join("src/input/",_file)
-        #read, merge and write info to the file
+        path = os.path.join("src/input/", _file)
+        # read, merge and write info to the file
         with open(path, "rb") as original:
             try:
                 result = merge_pdf_with_data(original, dataList)
@@ -224,9 +223,9 @@ if __name__ == "__main__":
                 exit(1)
             else:
                 result.seek(0)
-                with open(path, "wb") as result_pdf:
+                _path = os.path.join("src/output/", _file)
+                with open(_path, "wb") as result_pdf:
                     result_pdf.write(result.read())
                     print("Success!")
-    exit(0)                
+    exit(0)
 
-   
