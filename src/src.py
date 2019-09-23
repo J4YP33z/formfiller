@@ -168,6 +168,8 @@ def setPDFData(template: list, data_dict: list):
 excel_fname = "input/00 Client information.xlsx"
 # create and read the insured info start from 4th row, keyCol_idx=0, valueCol_idx=1
 insured_dict = readDataVertical(excel_fname, "Info", 3, 0, 1)
+insured_dict["TICK"] = "✓"
+insured_dict["CROSS"] = "X"
 # create owner dictionary
 owner_dict = readDataVertical(excel_fname, "Info", 3, 0, 2)
 # create baneficiaries dictionary
@@ -177,9 +179,9 @@ beneficiaries_dict = readDataHorizontal(excel_fname, "Beneficiaries", 2, 2, 1, 1
 # 1. Get key for searching
 # 2. Get the values
 # 3. Update the insured dictionary
-searchingKey = insured_dict["ENGLISH NAME"]
-beneficiaries_info = beneficiaries_dict[searchingKey]
-insured_dict.update(beneficiaries_info)
+# searchingKey = insured_dict["ENGLISH NAME"]
+# beneficiaries_info = beneficiaries_dict[searchingKey]
+# insured_dict.update(beneficiaries_info)
 # read json file
 templates = getTemplatesFromJsonFile("input/01 templates.json")
 
@@ -191,7 +193,7 @@ for _file in files:
     field_list = templates.get(_file)
     # handle error "Not found file name in templates.json"
     if field_list == None:
-        print("template for " + _file + " not found.")
+        print("template for " + _file + " not found!")
         continue
     # read, merge and write info to the file
     with open(os.path.join("src/input/", _file), "rb") as original:

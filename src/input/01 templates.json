@@ -101,53 +101,25 @@
   ],
   "2. Declaration of Trust for life Trust Insurance (EN-m) 2019 07 23.pdf": [
     {
-      "text": "FAMILY NAME",
+      "text": "ENGLISH NAME",
       "page": "0",
-      "x": "473",
-      "y": "130",
-      "fontsize": "12"
+      "x": "87",
+      "y": "145",
+      "fontsize": "9"
     },
     {
-      "text": "FIRST NAME",
+      "text": "RESIDENTIAL ADDRESS LINE 1",
       "page": "0",
-      "x": "44",
-      "y": "142",
-      "fontsize": "12"
+      "x": "265",
+      "y": "144",
+      "fontsize": "9"
     },
     {
-      "text": "MIDDLE NAME",
+      "text": "RESIDENTIAL ADDRESS LINE 2",
       "page": "0",
-      "x": "121",
-      "y": "142",
-      "fontsize": "12"
-    },
-    {
-      "text": "HOUSE/APT/SUITE/NUMBER/STREET",
-      "page": "0",
-      "x": "262",
-      "y": "142",
-      "fontsize": "12"
-    },
-    {
-      "text": "TOWN,CITY",
-      "page": "0",
-      "x": "84",
-      "y": "154",
-      "fontsize": "12"
-    },
-    {
-      "text": "STATE/PROVINCE",
-      "page": "0",
-      "x": "84",
-      "y": "168",
-      "fontsize": "12"
-    },
-    {
-      "text": "COUNTRY",
-      "page": "0",
-      "x": "342",
-      "y": "168",
-      "fontsize": "12"
+      "x": "90",
+      "y": "159",
+      "fontsize": "9"
     },
     {
       "text": "POLICY NUMBER",
@@ -160,79 +132,72 @@
       "text": "ENGLISH NAME",
       "page": "0",
       "x": "90",
-      "y": "260",
+      "y": "262",
       "fontsize": "12"
     },
     {
-      "text": "HOUSE/APT/SUITE/NUMBER/STREET",
+      "text": "RESIDENTIAL ADDRESS LINE 1",
       "page": "0",
-      "x": "90",
-      "y": "282",
-      "fontsize": "8"
+      "x": "88",
+      "y": "285",
+      "fontsize": "9"
     },
     {
-      "text": "TOWN,CITY",
+      "text": "RESIDENTIAL ADDRESS LINE 2",
       "page": "0",
-      "x": "90",
-      "y": "294",
-      "fontsize": "8"
-    },
-    {
-      "text": "STATE/PROVINCE",
-      "page": "0",
-      "x": "146",
-      "y": "294",
-      "fontsize": "8"
-    },
-    {
-      "text": "COUNTRY",
-      "page": "0",
-      "x": "230",
-      "y": "294",
-      "fontsize": "8"
+      "x": "88",
+      "y": "295",
+      "fontsize": "9"
     }
   ],
   "7. Trust - Application Supplement 1807.pdf": [
     {
+      "text": "TICK",
+      "page": "0",
+      "x": "31",
+      "y": "91",
+      "fontsize": "12"
+    },
+    {
       "text": "POLICY NUMBER",
       "page": "0",
       "x": "81",
-      "y": "130",
+      "y": "110",
       "fontsize": "12"
     },
     {
       "text": "ENGLISH NAME",
       "page": "0",
-      "x": "345",
-      "y": "130",
+      "x": "370",
+      "y": "110",
       "fontsize": "12"
     },
     {
       "text": "ENGLISH NAME",
       "page": "0",
-      "x": "286",
+      "x": "300",
       "y": "175",
       "fontsize": "12"
     },
     {
       "text": "HKID",
       "page": "0",
-      "x": "48",
-      "y": "202",
+      "x": "42",
+      "y": "189",
       "fontsize": "12"
     },
     {
       "text": "ENGLISH NAME",
       "page": "0",
-      "x": "49",
+      "x": "40",
       "y": "240",
       "fontsize": "12"
     },
     {
       "text": "HKID",
       "page": "0",
-      "x": "240",
-      "y": "252",
+      "x": "247",
+      "y": "240",
       "fontsize": "12"
     }
   ],
@@ -294,94 +259,31 @@
       "fontsize": "12"
     },
     {
-      "text": "NATIONALITY 2",
-      "page": "1",
-      "x": "45",
-      "y": "238",
-      "fontsize": "12"
-    },
-    {
       "text": "RESIDENTIAL ADDRESS LINE 1",
       "page": "1",
-      "x": "45",
-      "y": "316",
+      "x": "60",
+      "y": "302",
       "fontsize": "12"
     },
     {
-      "text": "CORRESPONDENCE ADDRESS LINE 1",
+      "text": "RESIDENTIAL ADDRESS LINE 2",
       "page": "1",
-      "x": "45",
-      "y": "351",
-      "fontsize": "12"
-    },
-    {
-      "text": "PREVIOUS ADDRESS",
-      "page": "1",
-      "x": "45",
-      "y": "392",
+      "x": "60",
+      "y": "312",
       "fontsize": "12"
     },
     {
       "text": "COUNTRY CODE",
       "page": "1",
-      "x": "45",
-      "y": "460",
+      "x": "60",
+      "y": "580",
       "fontsize": "12"
     },
     {
-      "text": "AREA CODE",
+      "text": "MOBILE",
       "page": "1",
-      "x": "186",
-      "y": "460",
-      "fontsize": "12"
-    },
-    {
-      "text": "HOME TEL",
-      "page": "1",
-      "x": "348",
-      "y": "460",
-      "fontsize": "12"
-    },
-    {
-      "text": "COUNTRY CODE",
-      "page": "1",
-      "x": "45",
-      "y": "520",
-      "fontsize": "12"
-    },
-    {
-      "text": "AREA CODE",
-      "page": "1",
-      "x": "186",
-      "y": "520",
-      "fontsize": "12"
-    },
-    {
-      "text": "BUSSINESS TEL",
-      "page": "1",
-      "x": "348",
-      "y": "520",
-      "fontsize": "12"
-    },
-    {
-      "text": "COUNTRY CODE",
-      "page": "1",
-      "x": "45",
-      "y": "582",
-      "fontsize": "12"
-    },
-    {
-      "text": "AREA CODE",
-      "page": "1",
-      "x": "186",
-      "y": "582",
-      "fontsize": "12"
-    },
-    {
-      "text": "MOBILE ",
-      "page": "1",
-      "x": "348",
-      "y": "582",
+      "x": "368",
+      "y": "580",
       "fontsize": "12"
     },
     {
@@ -389,27 +291,6 @@
       "page": "1",
       "x": "45",
       "y": "640",
-      "fontsize": "12"
-    },
-    {
-      "text": "US TAX ID",
-      "page": "1",
-      "x": "45",
-      "y": "677",
-      "fontsize": "12"
-    },
-    {
-      "text": "LOCAL TAX ID",
-      "page": "1",
-      "x": "370",
-      "y": "677",
-      "fontsize": "12"
-    },
-    {
-      "text": "COUNTRY OF LOCAL TAX ID",
-      "page": "1",
-      "x": "45",
-      "y": "718",
       "fontsize": "12"
     },
     {
@@ -433,7 +314,6 @@
       "y": "202",
       "fontsize": "12"
     },
-
     {
       "text": "HKID",
       "page": "4",
@@ -442,21 +322,12 @@
       "fontsize": "12"
     },
     {
-      "text": "RELATIONSHIP TO SETTLOR",
-      "page": "4",
-      "x": "60",
-      "y": "298",
-      "fontsize": "12"
-    },
-
-    {
       "text": "CHINESE NAME",
       "page": "4",
       "x": "314",
       "y": "122",
       "fontsize": "12"
     },
-
     {
       "text": "COUNTRY OF BIRTH",
       "page": "4",
@@ -465,31 +336,17 @@
       "fontsize": "12"
     },
     {
-      "text": "NATIONALITY 2",
-      "page": "4",
-      "x": "314",
-      "y": "202",
-      "fontsize": "12"
-    },
-    {
-      "text": "RELATIONSHIP TO LIFE INSURED",
-      "page": "4",
-      "x": "314",
-      "y": "251",
-      "fontsize": "12"
-    },
-    {
-      "text": "SHARE(%)",
-      "page": "4",
-      "x": "314",
-      "y": "298",
-      "fontsize": "12"
-    },
-    {
       "text": "RESIDENTIAL ADDRESS LINE 1",
       "page": "4",
       "x": "60",
-      "y": "336",
+      "y": "295",
+      "fontsize": "12"
+    },
+    {
+      "text": "RESIDENTIAL ADDRESS LINE 2",
+      "page": "4",
+      "x": "60",
+      "y": "295",
       "fontsize": "12"
     },
     {
@@ -500,13 +357,6 @@
       "fontsize": "12"
     },
     {
-      "text": "PREVIOUS ADDRESS",
-      "page": "1",
-      "x": "60",
-      "y": "410",
-      "fontsize": "12"
-    },
-    {
       "text": "COUNTRY CODE",
       "page": "4",
       "x": "60",
@@ -521,7 +371,7 @@
       "fontsize": "12"
     },
     {
-      "text": "HOME TEL",
+      "text": "RESIDENTIAL NUMBER",
       "page": "4",
       "x": "364",
       "y": "478",
@@ -542,7 +392,7 @@
       "fontsize": "12"
     },
     {
-      "text": "BUSSINESS TEL",
+      "text": "OFFICE NUMBER",
       "page": "4",
       "x": "364",
       "y": "539",
@@ -563,7 +413,7 @@
       "fontsize": "12"
     },
     {
-      "text": "MOBILE ",
+      "text": "MOBILE",
       "page": "4",
       "x": "364",
       "y": "599",
