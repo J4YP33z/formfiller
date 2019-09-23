@@ -1,11 +1,195 @@
 {
+  "4. Alpadis - CRS - Controlling Person (EN-m) 2019 07 23.pdf": [
+    {
+      "text": "FAMILY NAME",
+      "page": "1",
+      "x": "304",
+      "y": "231",
+      "fontsize": "12"
+    },
+    {
+      "text": "FIRST NAME",
+      "page": "1",
+      "x": "304",
+      "y": "251",
+      "fontsize": "12"
+    },
+    {
+      "text": "MIDDLE NAME",
+      "page": "1",
+      "x": "304",
+      "y": "271",
+      "fontsize": "12"
+    },
+    {
+      "text": "HKID",
+      "page": "1",
+      "x": "304",
+      "y": "342",
+      "fontsize": "12"
+    },
+    {
+      "text": "HOUSE/APT/SUITE/NUMBER/STREET",
+      "page": "1",
+      "x": "304",
+      "y": "387",
+      "fontsize": "12"
+    },
+    {
+      "text": "TOWN,CITY",
+      "page": "1",
+      "x": "304",
+      "y": "406",
+      "fontsize": "12"
+    },
+    {
+      "text": "STATE/PROVINCE",
+      "page": "1",
+      "x": "304",
+      "y": "426",
+      "fontsize": "12"
+    },
+    {
+      "text": "COUNTRY",
+      "page": "1",
+      "x": "304",
+      "y": "446",
+      "fontsize": "12"
+    },
+    {
+      "text": "POSTEL CODE/ ZIP  CODE",
+      "page": "1",
+      "x": "304",
+      "y": "466",
+      "fontsize": "12"
+    },
+    {
+      "text": "DATE OF BIRTH (DD/MM/YY)",
+      "page": "1",
+      "x": "304",
+      "y": "647",
+      "fontsize": "12"
+    },
+    {
+      "text": "TOWN/ CITY OF BIRTH",
+      "page": "1",
+      "x": "304",
+      "y": "692",
+      "fontsize": "12"
+    },
+    {
+      "text": "TOWN/ CITY OF BIRTH",
+      "page": "1",
+      "x": "304",
+      "y": "692",
+      "fontsize": "12"
+    },
+    {
+      "text": "TOWN/ CITY OF BIRTH",
+      "page": "1",
+      "x": "304",
+      "y": "692",
+      "fontsize": "12"
+    },
+    {
+      "text": "COUNTRY OF BIRTH",
+      "page": "1",
+      "x": "304",
+      "y": "712",
+      "fontsize": "12"
+    }
+  ],
   "2. Declaration of Trust for life Trust Insurance (EN-m) 2019 07 23.pdf": [
     {
-      "text": "POLICY NUMBER",
-      "page": "1",
-      "x": "81",
-      "y": "132",
+      "text": "FAMILY NAME",
+      "page": "0",
+      "x": "473",
+      "y": "130",
       "fontsize": "12"
+    },
+    {
+      "text": "FIRST NAME",
+      "page": "0",
+      "x": "44",
+      "y": "142",
+      "fontsize": "12"
+    },
+    {
+      "text": "MIDDLE NAME",
+      "page": "0",
+      "x": "121",
+      "y": "142",
+      "fontsize": "12"
+    },
+    {
+      "text": "HOUSE/APT/SUITE/NUMBER/STREET",
+      "page": "0",
+      "x": "262",
+      "y": "142",
+      "fontsize": "12"
+    },
+    {
+      "text": "TOWN,CITY",
+      "page": "0",
+      "x": "84",
+      "y": "154",
+      "fontsize": "12"
+    },
+    {
+      "text": "STATE/PROVINCE",
+      "page": "0",
+      "x": "84",
+      "y": "168",
+      "fontsize": "12"
+    },
+    {
+      "text": "COUNTRY",
+      "page": "0",
+      "x": "342",
+      "y": "168",
+      "fontsize": "12"
+    },
+    {
+      "text": "POLICY NUMBER",
+      "page": "0",
+      "x": "154",
+      "y": "239",
+      "fontsize": "12"
+    },
+    {
+      "text": "ENGLISH NAME",
+      "page": "0",
+      "x": "90",
+      "y": "260",
+      "fontsize": "12"
+    },
+    {
+      "text": "HOUSE/APT/SUITE/NUMBER/STREET",
+      "page": "0",
+      "x": "90",
+      "y": "282",
+      "fontsize": "8"
+    },
+    {
+      "text": "TOWN,CITY",
+      "page": "0",
+      "x": "90",
+      "y": "294",
+      "fontsize": "8"
+    },
+    {
+      "text": "STATE/PROVINCE",
+      "page": "0",
+      "x": "146",
+      "y": "294",
+      "fontsize": "8"
+    },
+    {
+      "text": "COUNTRY",
+      "page": "0",
+      "x": "230",
+      "y": "294",
+      "fontsize": "8"
     }
   ],
   "7. Trust - Application Supplement 1807.pdf": [
@@ -31,7 +215,7 @@
       "fontsize": "12"
     },
     {
-      "text": "HKID OR PASSPORT",
+      "text": "HKID",
       "page": "0",
       "x": "48",
       "y": "202",
@@ -45,7 +229,7 @@
       "fontsize": "12"
     },
     {
-      "text": "HKID OR PASSPORT",
+      "text": "HKID",
       "page": "0",
       "x": "240",
       "y": "252",
@@ -75,7 +259,7 @@
       "fontsize": "12"
     },
     {
-      "text": "HKID OR PASSPORT",
+      "text": "HKID",
       "page": "1",
       "x": "45",
       "y": "164",
@@ -251,7 +435,7 @@
     },
 
     {
-      "text": "HKID OR PASSPORT",
+      "text": "HKID",
       "page": "4",
       "x": "60",
       "y": "251",
