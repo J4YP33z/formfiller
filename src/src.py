@@ -209,7 +209,11 @@ if __name__ == "__main__":
     # fill the form one by one
     for _file in files:
         # get all fields in template by name
-        field_list = templates[_file]
+        field_list = templates.get(_file)
+        #handle error "Not found file name in templates.json"
+        if(field_list==None):
+            print("not crash anymore!")
+            continue
         # set data for form filling
         dataList = setPDFData(field_list, insured_dict)
         # get the path of the pdf file
