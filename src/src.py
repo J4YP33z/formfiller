@@ -101,6 +101,24 @@ def getTemplatesFromJsonFile(fileName: str):
     return templates_dict
 
 
+def getTemplatesFromXlsxFile(fileName: str):
+    result = {}  # { filename : list of dictionaries }
+    file_path = getRelativePath(fileName)
+    wb = xlrd.open_workbook(file_path)
+    for sheetIndex in range(0, len(wb.sheets())):
+        ws = wb.sheet_by_index(sheetIndex)
+        if ws.nrows < 4 or ws.ncols < 7:
+            continue  # skip defective templates
+        infoList = []
+        for r in range(3, ws.nrows):
+            rowDict = {}
+            for c in range(1, ws.ncols):
+                rowDict[ws.cell_value(2, c)] = ws.cell_value(r, c)
+            infoList.append(rowDict)
+        result[ws.cell_value(0, 1)] = infoList
+    return result
+
+
 def getAllFileFromInputFolder():
     files = []
     for file in os.listdir("src/input/"):
@@ -111,79 +129,43 @@ def getAllFileFromInputFolder():
 
 def setPDFData(template: list, data_dict: list):
     dataList = []
-    # get first value of template
-    _firstValue = next(iter(template))
-    # create new pdfData from first value
-    _generalSetting = PdfDataConfig(
-        text=insured_dict[_firstValue["text"]], font_size=int(_firstValue["fontsize"])
-    )
-    _configs = [
-        PdfDataConfig(
-            location=Location(
-                int(_firstValue["x"]), int(_firstValue["y"]), int(_firstValue["page"])
-            )
-        )
-    ]
-    _newPdfData = PdfData(general_setting=_generalSetting, configs=_configs.copy())
-    # set first value for dataList
-    dataList.append(_newPdfData)
-    for field_idx in range(1, len(template)):
-        field = template[field_idx]
-        # check if current field exist in dataList of not
-        #   if exist:
-        #       add new location for the exist field
-        #   else:
-        #       add current field to dataList
-        fieldExist = False
-        for data in dataList:
-            if data_dict[field["text"]] != data.general_setting.text:
-                continue
-            else:
-                # field exist
-                fieldExist = True
-                _newLocation = Location(
-                    int(field["x"]), int(field["y"]), page=int(field["page"])
-                )
-                data.configs.append(PdfDataConfig(location=_newLocation))
-                break
-        if fieldExist == False:
-            # field not exist
-            _generalSetting = PdfDataConfig(
-                text=data_dict[field["text"]], font_size=int(field["fontsize"])
-            )
-            _configs = [
+    for row in template:
+        # print(data_dict[row["INFO"]], row["PAGE"], row["X"], row["Y"], row["FONTSIZE"])
+        tmpPDFdata = PdfData(
+            configs=[
                 PdfDataConfig(
+                    text=data_dict[row["INFO"]],
+                    font_size=row["FONTSIZE"],
                     location=Location(
-                        int(field["x"]), int(field["y"]), int(field["page"])
-                    )
+                        int(row["X"]), int(row["Y"]), page=int(row["PAGE"] - 1)
+                    ),
                 )
             ]
-            _newPdfData = PdfData(
-                general_setting=_generalSetting, configs=_configs.copy()
-            )
-            dataList.append(_newPdfData)
+        )
+        dataList.append(tmpPDFdata)
     return dataList
 
 
+# program entry point
 excel_fname = "input/00 Client information.xlsx"
-# create and read the insured info start from 4th row, keyCol_idx=0, valueCol_idx=1
+# create and read the insured info. start from 4th row, keyCol_idx=0, valueCol_idx=1
 insured_dict = readDataVertical(excel_fname, "Info", 3, 0, 1)
 insured_dict["TICK"] = "✓"
 insured_dict["CROSS"] = "X"
 # create owner dictionary
 owner_dict = readDataVertical(excel_fname, "Info", 3, 0, 2)
-# create baneficiaries dictionary
-beneficiaries_dict = readDataHorizontal(excel_fname, "Beneficiaries", 2, 2, 1, 1)
+# create list of dictionaries for beneficiaries
+beneficiaries = []
+_workbook = xlrd.open_workbook(getRelativePath(excel_fname))
+_worksheet = _workbook.sheet_by_index(0)
+for i in range(3, _worksheet.ncols):
+    beneficiaries.append(readDataVertical(excel_fname, "Info", 3, 0, i))
 
-# get key value pairs from "Beneficiaries" sheet by "ENGLISH NAME"
-# 1. Get key for searching
-# 2. Get the values
-# 3. Update the insured dictionary
-# searchingKey = insured_dict["ENGLISH NAME"]
-# beneficiaries_info = beneficiaries_dict[searchingKey]
-# insured_dict.update(beneficiaries_info)
 # read json file
-templates = getTemplatesFromJsonFile("input/01 templates.json")
+# templates_ = getTemplatesFromJsonFile("input/01 templates.json")
+
+# read templates file
+templates = getTemplatesFromXlsxFile("input/01 templates.xlsx")
 
 # get all pdf file in input folder
 files = getAllFileFromInputFolder()
@@ -207,5 +189,5 @@ for _file in files:
             result.seek(0)
             with open(os.path.join("src/output/", _file), "wb") as result_pdf:
                 result_pdf.write(result.read())
-                print(_file + " filled.")
+                print(_file + " filled!")
 exit(0)
