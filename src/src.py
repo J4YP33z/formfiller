@@ -9,7 +9,6 @@ from pdf_filler import (
 import xlrd
 import json
 import os.path
-import glob
 import fnmatch
 
 
@@ -28,19 +27,18 @@ def readDataVertical(
     keyColumn_idx: int,
     valueColumn_idx: int,
 ):
-    file_path = getRelativePath(fileName)
     # open workbook
-    _workbook = xlrd.open_workbook(file_path)
-    _worksheet = _workbook.sheet_by_name(sheetName)
+    wb = xlrd.open_workbook(getRelativePath(fileName))
+    ws = wb.sheet_by_name(sheetName)
     # create new dictionary
     new_dict = {}
     # add policy number at A2 cell in excel file
-    new_dict["POLICY NUMBER"] = str(int(_worksheet.cell_value(0, 1)))
+    new_dict["POLICY NUMBER"] = str(int(ws.cell_value(0, 1)))
     # the loop start from the input start row to the last row of the sheet
-    for row_idx in range(startRow, _worksheet.nrows):
+    for row_idx in range(startRow, ws.nrows):
         # save the key and the value into the dictionary
-        new_dict[_worksheet.cell_value(row_idx, keyColumn_idx)] = str(
-            _worksheet.cell_value(row_idx, valueColumn_idx)
+        new_dict[ws.cell_value(row_idx, keyColumn_idx)] = str(
+            ws.cell_value(row_idx, valueColumn_idx)
         )
     return new_dict
 
@@ -53,24 +51,23 @@ def readDataHorizontal(
     keyCol_idx: int,
     keyRow_idx: int,
 ):
-    file_path = getRelativePath(fileName)
     # open workbook
-    _workbook = xlrd.open_workbook(file_path)
+    wb = xlrd.open_workbook(getRelativePath(fileName))
     # open worksheet
-    _worksheet = _workbook.sheet_by_name(sheetName)
+    ws = wb.sheet_by_name(sheetName)
     # create new dictionary
     new_dict = {}
     # add policy number at A2 cell in excel file
-    new_dict["POLICY NUMBER"] = str(int(_worksheet.cell_value(0, 1)))
-    for row_idx in range(startRow_idx, _worksheet.nrows):
+    new_dict["POLICY NUMBER"] = str(int(ws.cell_value(0, 1)))
+    for row_idx in range(startRow_idx, ws.nrows):
         # get the key value for the outer dictionary
-        _key = str(_worksheet.cell_value(row_idx, keyCol_idx))
+        _key = str(ws.cell_value(row_idx, keyCol_idx))
         # create a dictionary for the value of the outer dictionary
         value_dict = {}
-        for col_idx in range(startCol_idx, _worksheet.ncols):
+        for col_idx in range(startCol_idx, ws.ncols):
             # save column name as key and  the cell as value of the inner dictionary
-            value_dict[_worksheet.cell_value(keyRow_idx, col_idx)] = str(
-                _worksheet.cell_value(row_idx, col_idx)
+            value_dict[ws.cell_value(keyRow_idx, col_idx)] = str(
+                ws.cell_value(row_idx, col_idx)
             )
         # assign value for outer dictionary
         new_dict[_key] = value_dict
@@ -91,9 +88,7 @@ def readDataHorizontal(
 
 
 def getTemplatesFromJsonFile(fileName: str):
-    """
-    return a dictionary of form templates
-    """
+    # return a dictionary of form templates
     file_path = getRelativePath(fileName)
     with open(file_path, "r") as jsonFile:
         data_str = jsonFile.read()
@@ -127,10 +122,11 @@ def getAllFileFromInputFolder():
     return files
 
 
-def setPDFData(template: list, data_dict: list):
+# TODO: second argument should be list of dictionaries,
+# and data should be selected from correct dictionary
+def setPDFData(template: list, data_dict):
     dataList = []
     for row in template:
-        # print(data_dict[row["INFO"]], row["PAGE"], row["X"], row["Y"], row["FONTSIZE"])
         tmpPDFdata = PdfData(
             configs=[
                 PdfDataConfig(
@@ -174,7 +170,7 @@ for _file in files:
     # get all fields in template by name
     field_list = templates.get(_file)
     # handle error "Not found file name in templates.json"
-    if field_list == None:
+    if field_list is None:
         print("template for " + _file + " not found!")
         continue
     # read, merge and write info to the file
